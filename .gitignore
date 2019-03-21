@@ -20,3 +20,6 @@ source/obj/*
 *.mod
 *.smod
 
+# Zip
+*.zip
+

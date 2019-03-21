@@ -46,6 +46,7 @@
     <IntDir>obj\Win32\Release\</IntDir>
     <TargetName>d3d9</TargetName>
     <TargetExt>.dll</TargetExt>
+    <IncludePath>..\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
@@ -53,18 +54,20 @@
     <IntDir>obj\Win32\Debug\</IntDir>
     <TargetName>d3d9</TargetName>
     <TargetExt>.dll</TargetExt>
+    <IncludePath>..\external;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <ClCompile>
       <PrecompiledHeader>NotUsing</PrecompiledHeader>
       <WarningLevel>Level3</WarningLevel>
-      <PreprocessorDefinitions>rsc_CompanyName="ThirteenAG";rsc_LegalCopyright="MIT License";rsc_FileVersion="1.0.0.0";rsc_ProductVersion="1.0.0.0";rsc_InternalName="d3d9-wrapper";rsc_ProductName="d3d9-wrapper";rsc_OriginalFilename="d3d9.dll";rsc_FileDescription="https://thirteenag.github.io/wfp";rsc_UpdateUrl="https://github.com/ThirteenAG/d3d9-wrapper";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <PreprocessorDefinitions>rsc_CompanyName="ThirteenAG &amp; SuicideMachine";rsc_LegalCopyright="MIT License";rsc_FileVersion="1.0.0.0";rsc_ProductVersion="1.0.0.0";rsc_InternalName="d3d9-wrapper";rsc_ProductName="d3d9-wrapper";rsc_OriginalFilename="d3d9.dll";rsc_FileDescription="https://thirteenag.github.io/wfp";rsc_UpdateUrl="https://github.com/ThirteenAG/d3d9-wrapper";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <Optimization>Full</Optimization>
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <MinimalRebuild>false</MinimalRebuild>
       <StringPooling>true</StringPooling>
       <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>rsc_CompanyName=\"ThirteenAG\";rsc_LegalCopyright=\"MIT License\";rsc_FileVersion=\"1.0.0.0\";rsc_ProductVersion=\"1.0.0.0\";rsc_InternalName=\"d3d9-wrapper\";rsc_ProductName=\"d3d9-wrapper\";rsc_OriginalFilename=\"d3d9.dll\";rsc_FileDescription=\"https://thirteenag.github.io/wfp\";rsc_UpdateUrl=\"https://github.com/ThirteenAG/d3d9-wrapper\";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
@@ -88,6 +91,7 @@
       <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
       <Optimization>Disabled</Optimization>
       <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+      <LanguageStandard>stdcpplatest</LanguageStandard>
     </ClCompile>
     <ResourceCompile>
       <PreprocessorDefinitions>rsc_CompanyName=\"ThirteenAG\";rsc_LegalCopyright=\"MIT License\";rsc_FileVersion=\"1.0.0.0\";rsc_ProductVersion=\"1.0.0.0\";rsc_InternalName=\"d3d9-wrapper\";rsc_ProductName=\"d3d9-wrapper\";rsc_OriginalFilename=\"d3d9.dll\";rsc_FileDescription=\"https://thirteenag.github.io/wfp\";rsc_UpdateUrl=\"https://github.com/ThirteenAG/d3d9-wrapper\";DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>

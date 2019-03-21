@@ -1,4 +1,6 @@
 #include <d3d9.h>
+#include "inireader/IniReader.h"
+
 
 typedef INT(WINAPI* LPD3DPERF_BEGINEVENT)(D3DCOLOR, LPCWSTR);
 typedef INT(WINAPI* LPD3DPERF_ENDEVENT)();

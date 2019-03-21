@@ -203,14 +203,17 @@ bool WINAPI DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved) {
     {
     case DLL_PROCESS_ATTACH:
     {
+
+
         char path[MAX_PATH];
         HMODULE hm = NULL;
         GetModuleHandleExA(GET_MODULE_HANDLE_EX_FLAG_FROM_ADDRESS | GET_MODULE_HANDLE_EX_FLAG_UNCHANGED_REFCOUNT, (LPCSTR)&f_Direct3DCreate9, &hm);
         GetModuleFileNameA(hm, path, sizeof(path));
         *strrchr(path, '\\') = '\0';
         strcat_s(path, "\\d3d9.ini");
-        bForceWindowedMode = GetPrivateProfileInt("MAIN", "ForceWindowedMode", 0, path) != 0;
-        fFPSLimit = static_cast<float>(GetPrivateProfileInt("MAIN", "FPSLimit", 0, path));
+		CIniReader iniReader(path);
+		bForceWindowedMode = iniReader.ReadBoolean("MAIN", "ForceWindowedMode", false);
+        fFPSLimit = static_cast<float>(iniReader.ReadInteger("MAIN", "FPSLimit", 0));
         if (fFPSLimit)
             bFPSLimit = true;
 

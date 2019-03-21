@@ -1,0 +1,122 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{A792ECED-93F5-7B92-3C7B-B44828BD4715}</ProjectGuid>
+    <IgnoreWarnCompileDuplicatedFilename>true</IgnoreWarnCompileDuplicatedFilename>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>d3d9-wrapper</RootNamespace>
+    <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <OutDir>..\data\</OutDir>
+    <IntDir>obj\Win32\Release\</IntDir>
+    <TargetName>d3d9</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>true</LinkIncremental>
+    <OutDir>..\..\..\Steam\steamapps\common\Alone in the Dark</OutDir>
+    <IntDir>obj\Win32\Debug\</IntDir>
+    <TargetName>d3d9</TargetName>
+    <TargetExt>.dll</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>rsc_CompanyName="ThirteenAG";rsc_LegalCopyright="MIT License";rsc_FileVersion="1.0.0.0";rsc_ProductVersion="1.0.0.0";rsc_InternalName="d3d9-wrapper";rsc_ProductName="d3d9-wrapper";rsc_OriginalFilename="d3d9.dll";rsc_FileDescription="https://thirteenag.github.io/wfp";rsc_UpdateUrl="https://github.com/ThirteenAG/d3d9-wrapper";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Optimization>Full</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <MinimalRebuild>false</MinimalRebuild>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>rsc_CompanyName=\"ThirteenAG\";rsc_LegalCopyright=\"MIT License\";rsc_FileVersion=\"1.0.0.0\";rsc_ProductVersion=\"1.0.0.0\";rsc_InternalName=\"d3d9-wrapper\";rsc_ProductName=\"d3d9-wrapper\";rsc_OriginalFilename=\"d3d9.dll\";rsc_FileDescription=\"https://thirteenag.github.io/wfp\";rsc_UpdateUrl=\"https://github.com/ThirteenAG/d3d9-wrapper\";NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <ImportLibrary>..\data\d3d9.lib</ImportLibrary>
+      <ModuleDefinitionFile>d3d9.def</ModuleDefinitionFile>
+    </Link>
+    <BuildLog>
+      <Path>log\$(ProjectName).log</Path>
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>rsc_CompanyName="ThirteenAG";rsc_LegalCopyright="MIT License";rsc_FileVersion="1.0.0.0";rsc_ProductVersion="1.0.0.0";rsc_InternalName="d3d9-wrapper";rsc_ProductName="d3d9-wrapper";rsc_OriginalFilename="d3d9.dll";rsc_FileDescription="https://thirteenag.github.io/wfp";rsc_UpdateUrl="https://github.com/ThirteenAG/d3d9-wrapper";DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <DebugInformationFormat>EditAndContinue</DebugInformationFormat>
+      <Optimization>Disabled</Optimization>
+      <RuntimeLibrary>MultiThreadedDebug</RuntimeLibrary>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>rsc_CompanyName=\"ThirteenAG\";rsc_LegalCopyright=\"MIT License\";rsc_FileVersion=\"1.0.0.0\";rsc_ProductVersion=\"1.0.0.0\";rsc_InternalName=\"d3d9-wrapper\";rsc_ProductName=\"d3d9-wrapper\";rsc_OriginalFilename=\"d3d9.dll\";rsc_FileDescription=\"https://thirteenag.github.io/wfp\";rsc_UpdateUrl=\"https://github.com/ThirteenAG/d3d9-wrapper\";DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+    </ResourceCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <ImportLibrary>..\data\d3d9.lib</ImportLibrary>
+      <ModuleDefinitionFile>d3d9.def</ModuleDefinitionFile>
+    </Link>
+    <BuildLog>
+      <Path>log\$(ProjectName).log</Path>
+    </BuildLog>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="UniversalHooks.h" />
+    <ClInclude Include="VersionInfo.h" />
+    <ClInclude Include="d3d9.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="d3d9.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="d3d9.def" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="VersionInfo.rc" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

@@ -7,6 +7,7 @@ FPS Limit
 bool bFPSLimit, bForceWindowedMode;
 float fFPSLimit;
 bool bResolutionHooked = false;
+int amountOfCoresToUse = 2;
 
 HRESULT f_IDirect3DDevice9::Present(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDestWindowOverride, CONST RGNDATA *pDirtyRegion)
 {
@@ -106,6 +107,8 @@ HRESULT f_iD3D9::CreateDevice(UINT Adapter, D3DDEVTYPE DeviceType, HWND hFocusWi
 		*(BYTE*)((intptr_t)baseModule + 0x0845D) = 0x00;
 		//patch 004096F4: "lea edx, [ecx+eax*4]" to "lea edx, [ecx+eax*2]"
 		*(BYTE*)((intptr_t)baseModule + 0x096F6) = 0x41;
+		int affinityMask = ((uint32_t)1 << amountOfCoresToUse) - 1;
+		SetProcessAffinityMask(GetCurrentProcess(), affinityMask);
 
 		bResolutionHooked = true;
 	}
@@ -214,6 +217,7 @@ bool WINAPI DllMain(HMODULE hModule, DWORD fdwReason, LPVOID lpReserved) {
 		CIniReader iniReader(path);
 		bForceWindowedMode = iniReader.ReadBoolean("MAIN", "ForceWindowedMode", false);
         fFPSLimit = static_cast<float>(iniReader.ReadInteger("MAIN", "FPSLimit", 0));
+		amountOfCoresToUse = iniReader.ReadInteger("MAIN", "Cores", 2);
         if (fFPSLimit)
             bFPSLimit = true;
 
